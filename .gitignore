@@ -71,3 +71,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Project Boost/Packages/manifest.json
+Project Boost/Assets/Prefabs/Virtual Camera.prefab
+Project Boost/Assets/Prefabs/Virtual Camera.prefab.meta
+Project Boost/Assets/Scenes/Level (1).unity
+Project Boost/Assets/Scenes/Level (2).unity
+*.unity
+*.meta
+*.prefab
