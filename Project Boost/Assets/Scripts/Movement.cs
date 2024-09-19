@@ -30,21 +30,18 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            RotateLeft();
+            ApplyRotation(rocketRotateForce);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            RotateRight();
+            ApplyRotation(-rocketRotateForce);
         }
     }
 
-    void RotateRight()
+    void ApplyRotation(float rotationThisFrame)
     {
-        transform.Rotate(new Vector3(0, 0, -rocketRotateForce * Time.deltaTime));
-    }
-
-    void RotateLeft()
-    {
-        transform.Rotate(new Vector3(0, 0, rocketRotateForce * Time.deltaTime));
+        rb.freezeRotation = true;
+        transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
+        rb.freezeRotation = false;
     }
 }
