@@ -5,21 +5,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class HitDetection : MonoBehaviour
-{  
-    
-    
-    void OnCollisionEnter(Collision other) 
-    {        
+{
+
+    void OnCollisionEnter(Collision other)
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        int allScenes = SceneManager.sceneCountInBuildSettings;
+
+
+
         if (other.gameObject.tag == "Obstacle")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(currentScene);
         }
 
-        if (other.gameObject.tag == "Finish")
+        if (other.gameObject.tag == "Finish" && nextScene < allScenes)
         {
-            int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextScene);
             Debug.Log("Finished");
+        } else if (other.gameObject.tag == "Finish")
+        {
+            SceneManager.LoadScene(0);
         }
+            
     }
 }
+
